@@ -48,14 +48,26 @@ int main() {
 // }
 
 
-   int arr[]={4,2,6,1,7};
-    int* ptr=&arr[0];
-    cout<<ptr<<endl;
-   // ptr[0]=8;
-    for(int i=0;i<=4;i++) {
-       cout<<i[arr]<<" ";
-    }
-   // cout<<&arr[0];
   
+   // vector<int>v(5,8);
+   //   cout<<v.size()<<endl;
+   //   cout<<v.capacity()<<endl;
+   //   cout<<v[4];
 
+    
+    vector<int>v;
+     v.push_back(9);
+     v.push_back(10);
+     v.push_back(6);
+     v.push_back(1);
+   //  v.at(2)=90;
+     for(int i=0;i<v.size();i++) {
+      cout<<v.at(i)<<" ";
+     }
+     cout<<endl;
+     sort(v.begin(),v.end());
+     for(int i=0;i<v.size();i++) {
+      cout<<v.at(i)<<" ";
+     }
+    //cout<<v.at(2);
 }
