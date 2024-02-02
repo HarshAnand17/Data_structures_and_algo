@@ -1,0 +1,1 @@
+prevsum<currsum;
