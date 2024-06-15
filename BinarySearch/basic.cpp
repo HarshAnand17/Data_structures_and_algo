@@ -1,34 +1,39 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int main() {
-  int arr[]={1,2,4,5,9,15,18,21,24};
-  int n=sizeof(arr)/sizeof(arr[0]);
-//  int target=20;
-//  int lo=0,hi=n-1;
-//  int idx=-1;
-//  int mid;
-//  while(lo<=hi) {
-//      mid=lo+(hi-lo)/2;
-//   if(arr[mid]==target) {
-//     idx=mid;
-//     break;
-//   }
-//   else if(arr[mid]>target) hi=mid-1;
-//   else lo=mid+1;
-//  }
-//  if(idx!=-1) cout<<"yes element is present at index "<<mid;
-//  else cout<<"not present";
+   int arr[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+   for(int i=0;i<3;i++) {
+    for(int j=0;j<3;j++) {
+       cout<<arr[i][j];  
+    }
+    cout<<endl;
+   }
+    for(int i=0;i<3;i++) {
+      for(int j=i+1;j<3;j++) {
+         swap(arr[i][j],arr[j][i]);
+      }
+    }
 
-   int max=INT_MIN;
-   for(int i=0;i<n;i++) {
-    if(arr[i]>max) max=arr[i];
+      for(int i=0;i<3;i++) {
+    for(int j=0;j<3;j++) {
+       cout<<arr[i][j];  
+    }
+    cout<<endl;
+      }
+
+      //  for(int j=0;j<3;j++) {
+      //   int i=0,k=2;
+      //   while(i<=k) {
+      //     swap(arr[i][j],arr[k][j]);
+      //     i++;
+      //     k--;
+      //   }
+      //  }
+         cout<<endl;
+        for(int i=0;i<3;i++) {
+    for(int j=0;j<3;j++) {
+       cout<<arr[i][j];  
+    }
+   cout<<endl;
+  }
    }
-   cout<<max<<endl;
-  
-   int min=INT_MAX;
-   for(int i=0;i<n;i++) {
-    if(arr[i]<min) min=arr[i];
-   }
-   cout<<min;
-}
