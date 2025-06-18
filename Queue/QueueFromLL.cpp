@@ -11,68 +11,62 @@ public:
 };
 class Queue{
 public:
-   Node* head;
-   Node* tail;
-   int s;
-   Queue() {
-      head = tail = NULL;
-      s=0;
-   }
-
-   void push(int val) {
-    Node* temp = new Node(val);
-    if(s==0) head = tail = temp;
-    else{
-        tail->next = temp;
-        tail = temp;
+    Node* head;
+    Node* tail;
+    int s;
+    Queue() {
+        head=NULL;
+        tail=NULL;
+        s=0;
     }
-    s++;
-   }
-
-    // delete
+    void push(int val) {
+        Node* temp=new Node(val);
+        if(s==0) head=tail=temp;
+        else {
+            tail->next=temp;
+            tail=temp;
+        }
+        s++;
+    }
     void pop() {
         if(s==0) {
-            cout<<"list is empty";
-            return; 
+            cout<<"Queue is empty"<<endl;
+            return;
         }
-        Node* temp=head;
-        head = head->next;
+        //Node* temp=head;
+        head=head->next;
         s--;
-        delete(temp);
+       // delete(temp);
     }
-     
-     int front() {
-      if(s==0) {
-         cout<<"Queue is Empty";
-         return -1;
-      }
-      return head->val;
-     }
-
-     int back() {
-      if(s==0) {
-         cout<<"Queue is Empty";
-         return -1;
-      }
-      return tail->val;
-     }
-  
-   void display() {
-     Node* temp = head;
-     while(temp!=NULL) {
-        cout<<temp->val<<" ";
-        temp = temp->next;
-     }
-     cout<<endl;
-   }
+    int front() {
+        if(s==0) {
+            cout<<"Queue is empty"<<endl;
+            return -1;;
+        }
+        return head->val;
+    }
+    int back() {
+        if(s==0) {
+            cout<<"Queue is empty"<<endl;
+            return -1;;
+        }
+        return tail->val;
+    }
+    void display() {
+        Node* temp=head;
+        while(temp!=NULL) {
+            cout<<temp->val<<" ";
+            temp=temp->next;
+        }
+        cout<<endl;
+    }
     int size() {
-      return s;
+        return s;
     }
-
-     bool empty() {
-      if(s==0) return true;
-      else return false;
-     }
+   bool empty() {
+       if(s==0) return true;
+       else return false;
+   }
 };
 int main() {
     Queue q;

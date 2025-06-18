@@ -1,22 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool isbalanced(string s) {
-  int n=s.size();
-  if(n%2!=0) return false;
-  stack<char>st;
-  for(int i=0;i<n;i++) {
-    if(s[i]=='(') st.push(s[i]);
-    else if(s[i]==')')  {
-      if(st.size()==0) return false;
-      else st.pop();
-    }
-  }
-  if(st.size()==0) return true;
-  else false;
-}
 int main() {
-   string s="())()(";
-   cout<<isbalanced(s);
+     stack<int>st;
+     st.push(1);
+     st.push(2);
+     st.push(3);
+     st.push(4);
+     st.push(5);
+    
     // cout<<st.size()<<endl;
     // st.push(10);
     // st.push(20);

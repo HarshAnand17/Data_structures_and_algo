@@ -1,17 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
-int fact(int n) {
-    if(n==0 || n==1) return 1;
-    return n*fact(n-1);
-}
-void fact0(int n) {
-    int f=1;
-  for(int i=1;i<=n;i++) {
-        f*=i;
-        cout<<f<<endl;
-  }
- 
+int sum(int arr[],int n,int s,int idx) {
+    if(idx==n) return s;
+    return sum(arr,n,s+arr[idx],idx+1);
 }
 int main() {
-    cout<<fact(3);
+    int arr[]={3,1,5,9,8,2,0,5,12,9,54};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int s=0;
+    cout<<sum(arr,n,s,0);
+   
 }

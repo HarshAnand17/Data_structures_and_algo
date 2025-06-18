@@ -1,0 +1,2 @@
+ hp.pop();
+    hp.display();

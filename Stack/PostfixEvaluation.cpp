@@ -14,13 +14,14 @@ int main() {
            val.push(s[i]-48);
         }
         else{//s[i]=*,/,+,-
-              int val2 = val.top();
-              val.pop();
-              int val1 = val.top();
-              val.pop();
-              int ans = solve(val1,val2,s[i]);
-              val.push(ans);
-            }
+          int val2=val.top();
+          val.pop();
+          int val1=val.top();
+          val.pop();
+          int ans=solve(val1,val2,s[i]);
+          val.push(ans);
      }
-        cout<<val.top();
-     }
+   }
+   cout<<val.top(); 
+
+}

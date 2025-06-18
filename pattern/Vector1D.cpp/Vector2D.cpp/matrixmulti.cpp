@@ -46,28 +46,46 @@ int main() {
 //     }
             
 // }
+   int m,n;
+   cout<<"enter row and column of 1st matrix :";
+   cin>>m>>n;
+   cout<<"Enter element in the 1st matrix :";
+   int arr[m][n];
 
+   for(int i=0;i<m;i++) {
+    for(int j=0;j<n;j++) {
+      cin>>arr[i][j];
+    }
+   }
+   cout<<endl;
+   int p,q;
+   cout<<"enter row and column of 2nd matrix :";
+   cin>>p>>q;
 
-  
-   // vector<int>v(5,8);
-   //   cout<<v.size()<<endl;
-   //   cout<<v.capacity()<<endl;
-   //   cout<<v[4];
+   cout<<"Enter element in the 2nd matrix :";
+   int brr[p][q];
 
-    
-    vector<int>v;
-     v.push_back(9);
-     v.push_back(10);
-     v.push_back(6);
-     v.push_back(1);
-   //  v.at(2)=90;
-     for(int i=0;i<v.size();i++) {
-      cout<<v.at(i)<<" ";
-     }
-     cout<<endl;
-     sort(v.begin(),v.end());
-     for(int i=0;i<v.size();i++) {
-      cout<<v.at(i)<<" ";
-     }
-    //cout<<v.at(2);
+   for(int i=0;i<p;i++) {
+    for(int j=0;j<q;j++) {
+      cin>>brr[i][j];
+    }
+   }
+   if(n!=p) cout<<"Matrix multiplication is not possible";
+   else {
+   int res[m][q];
+    for(int i=0;i<m;i++) {
+      for(int j=0;j<q;j++) {
+        res[i][j]=0;
+        for(int k=0;k<p;k++) {
+          res[i][j]+=arr[i][k]*brr[k][j];
+        }
+      }
+    }
+   for(int i=0;i<m;i++) {
+    for(int j=0;j<q;j++) {
+        cout<<res[i][j]<<" ";
+    }
+    cout<<endl;
+   }
+   }
 }

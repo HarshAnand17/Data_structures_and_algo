@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<list<pair<int,int>>> graph;
+vector<list<pair<int,int>>>graph;
 int v;
 void add_edge(int src,int dest,int wt,bool bi_dir = true) {
      graph[src].push_back({dest,wt});

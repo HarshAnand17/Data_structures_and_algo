@@ -1,17 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool ispalidrome(string s) {
-    int i=0;
-    int j=s.size()-1;
-      while(i<j) {
-        if(s[i]!=s[j]) return false;
-        i++;
-        j--;
-    }
-    return true;
-}
-int main() {
-    string s = "daa";
-    cout<<ispalidrome(s);
+ bool isPalindrome(string s,int i,int j) {
+       if(i>j) return true;
+       if(s[i]!=s[j]) return false;
+       else  isPalindrome(s,i+1,j-1);
 
+ }
+int main() {
+   string s="mom";
+   cout<<isPalindrome(s,0,s.size()-1);
 }

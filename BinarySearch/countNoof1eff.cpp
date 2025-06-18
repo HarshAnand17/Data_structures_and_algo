@@ -2,17 +2,21 @@
 using namespace std;
 
 int main() {
-    int arr[]={0,0,0,1,1};
-   int n=sizeof(arr)/sizeof(arr[0]);
-    int lo=0,hi=n-1;
-    int ans=-1;
-    while(lo<=hi) {
-        int mid=lo+(hi-lo)/2;
-        if(arr[mid]==1) {
-            ans=mid;
-            hi=mid-1;
-        }
-        else lo=mid+1;
+    int m,n;
+    cout<<"Enter row & column : ";
+    cin>>m>>n;
+    int arr[m][n];
+    for(int i=0;i<m;i++) {
+      for(int j=0;j<n;j++) {
+        cin>>arr[i][j];
+      }
     }
-    cout<<n-ans;
+    for(int i=0;i<m;i++) {
+      for(int j=0;j<n;j++) {
+        if(i==n/2 || j==n/2) cout<<arr[i][j];
+        else cout<<" ";
+      }
+      cout<<endl;
+    }
 }
+

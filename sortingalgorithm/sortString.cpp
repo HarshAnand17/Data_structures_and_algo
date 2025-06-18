@@ -2,30 +2,21 @@
 using namespace std;
 
 int main() {
-    string arr[5]={"raghav","urvi","sanket","harsh","vishwa"};
-    int n=5;
-    for(int i=0;i<n;i++) {
-        cout<<arr[i]<<endl;
+    string str =  "hgdhpw";
+    int n=str.size();
+    int j=0;
+    int l=0;
+    int ans=0;
+    while(j<n) {
+        if(str[j]=='a' || str[j]=='e' || str[j]=='i' || str[j]=='o' || str[j]=='u') {
+            l++;
+        } 
+        else {
+            ans=ans+(l*(l+1))/2;
+            l=0;       
     }
-
-     for(int i=0;i<n-1;i++) {
-            bool flag=true;
-        for(int j=0;j<n-1-i;j++) {
-            if(arr[j]>arr[j+1]) {
-                //swap
-                // int temp=arr[j];
-                // arr[j]=arr[j+1];
-                // arr[j+1]=temp;
-                // swap(arr[j],arr[j+1]);
-                flag=false;
-            }
-        }
-        if(flag) {
-            break;
-        }
+    j++;
     }
-    cout<<endl;
-    for(int i=0;i<n;i++) {
-        cout<<arr[i]<<" ";
-    }
+    ans+=(l*(l+1))/2;
+    cout<<ans;
 }

@@ -7,6 +7,7 @@ public:
      Queue(int val) {
         f=0;
         b=0;
+        s=0;
         vector<int> v(val);
         arr=v;
      }
@@ -20,7 +21,7 @@ public:
         s++;
      }
      void pop() {
-        if(f-b==5) {
+        if(s==0) {
             cout<<"Queue is empty"<<endl;
             return;
         }

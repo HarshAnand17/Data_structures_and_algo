@@ -28,9 +28,12 @@ int partition(int arr[],int si,int ei) {
 int KthSmallest(int arr[],int si,int ei,int k) {
    // if(si>=ei) return;
     int pi = partition(arr,si,ei);
+//     if(pi+1==k) return arr[pi];
+//   else if(pi+1<k) return KthSmallest(arr,pi+1,ei,k);
+//    else return KthSmallest(arr,si,pi-1,k);
     if(pi+1==k) return arr[pi];
-  else if(pi+1<k) return KthSmallest(arr,pi+1,ei,k);
-   else return KthSmallest(arr,si,pi-1,k);
+    else if(pi+1<k) KthSmallest(arr,pi+1,ei,k);
+    else KthSmallest(arr,si,pi-1,k);
 }
 int main() {
     int arr[]={5,1,8,2,7,6,3,4,-8};

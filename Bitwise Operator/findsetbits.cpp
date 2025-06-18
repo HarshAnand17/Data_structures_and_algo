@@ -1,37 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
-// int countsetbits(int n) {
-//     int count=0;
-//     while(n>0) {
-//         n=(n & (n-1));
-//         count++;
-//     }
-//     return count;
-// }
+int countbits(int n) {
 
-// int main() {
-//    cout<<countsetbits(64);
-//    return 0;
-// }
-
-// int count_set_bits(int n) {
-//     int count=0;
-//    while(n>0) {
-//         n=(n)&(n-1);
-//         count++;
-//    }
-//    return count;
-// }
-// int main() {
-//    cout<<count_set_bits(453)<<"\n";
-// }
-
+   // int count=0;
+   // while(n>0) {
+   //    count++;
+   //    n=n&(n-1);
+   // }
+   // return count;
+   int count=0;
+   while(n>0) {
+      n=n&(n-1);
+      count++;
+   }
+   return count;
+}
+int countbits2(int n) {
+   //return _builtin_popcount(n);
+   return __builtin_popcount(n);
+}
 int main() {
-   // int x=5;
-   // int y=11; 
-   // cout<< __builtin_popcount(x^y);
-
-   cout<<(2^3^9);
-   cout<<endl;
-   cout<<(2^9^3);
+    cout<<countbits(92)<<endl;
+    cout<<countbits2(92);
 }

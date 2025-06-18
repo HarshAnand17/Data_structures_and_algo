@@ -9,7 +9,6 @@ void add_edge(int src,int dest,int wt,bool bi_dir = true) {
         graph[dest][src]=wt;
      }
 }
-
 void display() {
     for(int i=0;i<graph.size();i++) {
       cout<<i<<"->";

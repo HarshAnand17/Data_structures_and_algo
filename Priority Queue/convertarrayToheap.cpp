@@ -3,7 +3,7 @@
 using namespace std;
 class MaxHeap {
     vector<int>hp;
-    int i;//[0,i] -> max heap
+   // int i;//[0,i] -> max heap
 public:
     void upheapify(int ci) {
         while(ci>0) {

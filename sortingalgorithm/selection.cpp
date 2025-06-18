@@ -1,44 +1,42 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
-    int arr[]={5,3,1,4,2};
-    int n=sizeof(arr)/sizeof(arr[0]);
-     for(int i=0;i<n;i++) {
-        cout<<arr[i]<<" ";
-    }
-  int k=2;
-   for(int i=0;i<k;i++) {
-   int minEle=INT_MAX;
-   int minIdx=-1;
-      for(int j=i;j<n;j++) {
-        if(minEle>arr[j]) {
-           minEle=arr[j];
-            minIdx=j;
-        }
-      }
-      swap(arr[i],arr[minIdx]);
+   string s,p;
+   cin>>s>>p;
+   vector<int>cnt_s(26,0),cnt_p(26,0);
+   int n=s.size();
+   int m=p.size();
+
+   if(m>n) {
+    cout<<"no answer exist"<<endl;
    }
-   cout<<endl;
-    for(int i=0;i<n;i++) {
-        cout<<arr[i]<<" ";
+   else{
+    vector<int>ans;
+    for(int i=0;i<m;i++) cnt_p[p[i]-'a']++;
+    int i=0;
+    for(;i<m;i++) cnt_s[s[i]-'a']++;
+    bool flag=true;
+    for(int j=0;j<26;j++) {
+        if(cnt_s[j]!=cnt_p[j]) {
+            flag=false;
+            break;
+        }
     }
-    cout<<endl;
-    cout<<arr[k-1];
+    if(flag) ans.push_back(0);
+    while(i<n) {
+     cnt_s[s[i-m]-'a']--;
+     cnt_s[s[i]-'a']++;
+     bool flag=true;
+     for(int j=0;j<26;j++) {
+           if(cnt_s[j]!=cnt_p[j]) {
+            flag=false;
+            break;
+        }
+     }
+     if(flag) ans.push_back(i-m+1);
+     i++;
+    }
+    for(auto x:ans) cout<<x<<" ";
+   }
 
-//     for(int i=0;i<n-1;i++) {
-//      int min=INT_MAX;
-//      int minIdx=-1;
-//      for(int j=i;j<n;j++) {
-//         if(arr[j]<min) {
-//             min=arr[j];
-//             minIdx=j;
-//         }
-//      }
-//      swap(arr[i],arr[minIdx]);
-//    }
-//        cout<<endl;
-//         for(int i=0;i<n;i++) {
-//         cout<<arr[i]<<" ";
-//     }
-
-}
+} 

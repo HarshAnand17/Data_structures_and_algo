@@ -1,31 +1,37 @@
 #include<bits/stdc++.h>
 using namespace std;
-void subarray(int arr[],int n,int idx,vector<int> ans) {
-    if(idx==n) {
-       for(int i=0;i<ans.size();i++) {
-        cout<<ans[i]<<" ";
-       }
-       cout<<endl;
-       return;
-    } 
-     subarray(arr,n,idx+1,ans);
-     if(ans.size()==0 || arr[idx-1]==ans[ans.size()-1]) {
-     ans.push_back(arr[idx]);
-     subarray(arr,n,idx+1,ans);
- }
+// void printSubarray(int arr[],int idx,int n,vector<int>v) {
+//     if(idx==n) {
+//         for(int i=0;i<v.size();i++) cout<<v[i]<<" ";
+//         cout<<endl;
+//         return;
+//     }
+//      printSubarray(arr,idx+1,n,v);
+//      if(v.size()==0 || v.back()==arr[idx-1]) {
+//         v.push_back(arr[idx]);
+//         printSubarray(arr,idx+1,n,v);
+//      }
+// }
+// int main() {
+//      int arr[]={1,2,3,4};
+//     vector<int>v;
+//     int n=4;
+//      printSubarray(arr,0,n,v);
+// }
+void subarray(vector<int>&arr,int idx,vector<int>ans) {
+    if(idx==arr.size()) {
+        for(int i=0;i<ans.size();i++) cout<<ans[i]<<" ";
+        cout<<endl;
+        return;
     }
+    subarray(arr,idx+1,ans);
+    if(ans.size()==0 || arr[idx-1]==ans.back()){
+        ans.push_back(arr[idx]);
+        subarray(arr,idx+1,ans);
+    }
+}
 int main() {
-    int arr[]={1,2,3,4};
-    int n=sizeof(arr)/sizeof(arr[0]);
-   // vector<int> v;
-   //subarray(arr,n,0,v);
-
-   for(int i=0;i<n;i++) {
-    for(int k=i;k<n;k++) {
-        for(int j=i;j<=k;j++) {
-        cout<<arr[j];
-        }
-    cout<<endl;
-    }
-   }
+    vector<int>arr={1,2,3};
+    vector<int>ans;
+    subarray(arr,0,ans);
 }

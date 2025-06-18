@@ -15,11 +15,10 @@ int main() {
      stack<int>val;
      stack<char>op;
      for(int i=0;i<s.length();i++) {
-        if(s[i]>=48 && s[i]<=57) {
-            val.push(s[i]-48);
+        if(s[i]>='0' && s[i]<='9') {
+            val.push(s[i]-'0');
         }
-        else{//s[i]=*,/,+,-
-        if(op.size()==0 )  op.push(s[i]);
+        else if(op.size()==0 )  op.push(s[i]);
         else if(s[i]=='(')   op.push(s[i]);
         else if(op.top()=='(')   op.push(s[i]);
        // else if(prio(s[i])>prio(op.top())) op.push(s[i]);
@@ -50,7 +49,6 @@ int main() {
             }
             op.push(s[i]);
         }
-    }
         }
         while(op.size()>0) {
               char ch=op.top();

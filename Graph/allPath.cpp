@@ -1,44 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-vector<list<int>> graph;
-unordered_set<int> visited;
-vector<vector<int>>result;
+vector<list<int>>graph;
+unordered_set<int>visit;
 int v;
-
-void add_edge(int src,int dest,bool bi_dir = true) {
+void add_edge(int src,int dest,bool bi_dir=true) {
     graph[src].push_back(dest);
     if(bi_dir) {
         graph[dest].push_back(src);
     }
 }
-void dfs(int curr,int end,vector<int> &path) {
-    if(curr==end) {
-        path.push_back(curr);
-        result.push_back(path);
-        path.pop_back();
-        return;
-    }
-    visited.insert(curr);
-    path.push_back(curr);
-    for(auto neighbour:graph[curr]) {
-        if(not visited.count(neighbour)) {
-            dfs(neighbour,end,path);
+
+// bool dfs(int curr,int end) {
+//     if(curr==end) return true;
+//     visit.insert(curr);
+//     for(auto neighbour:graph[curr]) {
+//         if(!visit.count(neighbour)) {
+//             bool result=dfs(neighbour,end);
+//             if(result) return true;
+//         }
+//     }
+//     return false;
+// }
+
+bool dfs(int curr,int end) {
+    if(curr==end) return true;
+    visit.insert(curr);
+     for(auto neigh:graph[curr]) {
+        if(!visit.count(neigh)) {
+            bool res=dfs(neigh,end);
+            if(res) return true;
         }
-    }
-    path.pop_back();
-    visited.erase(curr);
-    return;
+     }
+     return false;
 }
-void allPath(int src,int dest) {
-         vector<int>v;
-        dfs(src,dest,v);
+
+bool anyPath(int src,int dest) {
+    return dfs(src,dest);
 }
 int main() {
     cin>>v;
     graph.resize(v,list<int> ());
     int e;
     cin>>e;
+    visit.clear();
     while(e--) {
       int s,d;
       cin>>s>>d;
@@ -46,12 +50,5 @@ int main() {
     }
     int x,y;
     cin>>x>>y;
-    allPath(x,y);
-    for(auto path:result) {
-        for(auto ele:path) {
-            cout<<ele<<" ";
-        }
-        cout<<"\n";
-    }
-    return 0;
+    cout<<anyPath(x,y)<<"\n";
 }

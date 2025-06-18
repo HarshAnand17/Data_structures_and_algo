@@ -48,7 +48,7 @@ public:
         upheapify(hp.size()-1);
     }
     int peek() {
-       // if(empty()) return INT_MIN;
+        //if(empty()) return INT_MIN;
         return hp[0];
     }
     bool empty() {
@@ -92,7 +92,8 @@ void heapsort(vector<int>&v) {
 } 
 int main() {
     vector<int>v = {9,6,1,19,3,2,8,12,5};
-    heapsort(v);
-    //cout<<hp.peek();
+   heapsort(v);
     return 0;
+
+    
 }

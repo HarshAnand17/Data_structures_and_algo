@@ -1,39 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-//1st approach
-// class Node{
-// public:
-//    int val;
-//    Node* next;
-//    Node(int val) {
-//     this->val=val;
-//     this->next=NULL;
-//    }
-// };
-// int main() {
-   //  Node a(10);
-   //  Node b(20);
-   //  Node c(30);
-   //  Node d(40);
-    //forming ll
-   //   a.next=&b;
-   //   b.next=&c;
-   //   c.next=&d;
-    //  a.next->val=90;
-    // cout<<b.val;
-   //   cout<<(((a.next)->next)->next)->val;
-   //   cout<<(*((*((*(a.next)).next)).next)).val;
-    //cout<<(*(a.next)).val;
-
-   //   Node temp=a;
-   //   while(1) {
-   //    cout<<temp.val<<" ";
-   //    if(temp.next=NULL) break;
-   //    temp= *(temp.next);
-   //   }
-
-   
-   //2nd aaproach
     class Node{
    public:
       int val;
@@ -43,76 +9,153 @@ using namespace std;
          this->next=NULL;
       }
     };
-    void display(Node* head) {
-          while(head) {
-            cout<<head->val<<" ";
-            head=head->next;
-          }
-    }
-    int size(Node* head) {
-       // Node* temp=head;
-        int n=0;
-          while(head) {
-            n++;
-            head=head->next;
-          }
-          return n;
-    }
 
-    void recusivelydisplay(Node* head) {
-      // Node* temp=head;
-       if(head==NULL) return;
-       cout<<head->val<<" ";
-       recusivelydisplay(head->next);
-    }
-    void insertAtend(Node* head,int val) {
-      Node* t=new Node(val);
-      Node* temp=head;
-      while(temp->next!=NULL) {
-        temp=temp->next;
+    class LinkList{ //userdefined data structure
+        public:
+        Node* head;
+        Node* tail;
+        int size=0;
+        LinkList() {
+          head=tail=NULL;
+          size=0;
+        }
+        void insertAtEnd(int val) {
+           Node* temp=new Node(val);
+           if(size==0) head=tail=temp;
+           else {
+            tail->next=temp;
+            tail=temp;
+           }
+           size++;
+        }
+        void insertAtHead(int val) {
+            Node* temp=new Node(val);
+            if(size==0) head=tail=temp;
+           else{ 
+            temp->next=head;
+            head=temp;
+           }
+           size++;
+        }
+     void insertAtIdx(int idx,int val) {
+        if(idx<0 || idx>size) cout<<"Invalid index"<<endl;
+        else if(idx==0) insertAtHead(val);
+        else if(idx==size) insertAtEnd(val);
+        else {
+          Node* t=new Node(val);
+          Node* temp=head;
+          for(int i=1;i<=idx-1;i++) {
+             temp=temp->next;
+          }
+         t->next=temp->next;
+         temp->next=t;
+         size++;
+        }
+     }
+
+     int getAtIdx(int idx) {
+         if(idx<0 || idx>=size) {
+            cout<<"Invalidindex";
+            return -1;
+         }
+         else if(idx==0) cout<<head->val;
+         else if(idx==size-1) cout<<tail->val;
+         else {
+            Node* temp=head;
+            for(int i=0;i<=idx-1;i++) {
+                temp=temp->next;
+            }
+            return temp->val;
+
+         }
+     }
+
+     void deleteAtHead() {
+      if(size==0) {
+         cout<<"list is empty";
+         return;
       }
-      temp->next=t;
-    }
+      head=head->next;
+      size--;
+     }
 
-     Node* deleteanode(Node* head,int target) {
-      if(head->val==target) {
-         head=head->next;
-         return head;
+     void deleteAtEnd() {
+      if(size==0) {
+         cout<<"list is empty";
+         return;
       }
         Node* temp=head;
-        while(temp->next->val!=target) {
-           temp=temp->next;
+        while(temp->next!=tail) {
+         temp=temp->next;
         }
-          temp->next=temp->next->next;
-          return head;
+        temp->next=NULL;
+        tail=temp;
+        size--;
      }
-    int main() {
-        Node* a = new Node(10);
-        Node* b = new Node(20);
-        Node* c = new Node(30);
-        Node* d = new Node(40);
-        Node* e = new Node(50);
 
-        a->next=b;
-        b->next=c;
-        c->next=d;
-        d->next=e; 
-      //  display(a);
-      //  cout<<endl;
-
-       Node* head=a;
-       insertAtend(a,80);
-       display(head);
-       cout<<endl;
-       head=deleteanode(head,30);
-       display(head);
-       //  recusivelydisplay(a);
+     void deleteAtIndex(int idx) {
+         if(size==0) {
+         cout<<"list is empty";
+         return;
+      }
+      Node* temp=head;
+      int i=0;
+      while(i<idx-1) {
+         temp=temp->next;
+         i++;
+      }
+      temp->next=temp->next->next;
+      size--;
+     }
+        void display() {
+          Node* temp=head;
+          while(temp) {
+            cout<<temp->val<<" ";
+            temp=temp->next;
+          }
           cout<<endl;
-       // cout<<a->next->next->val;
-      //   Node* temp=a;
-      //   while(temp!=NULL) {
-      //    cout<<temp->val<<" ";
-      //    temp=temp->next;
-      //   }
-        // cout<<size(a);
+        } 
+
+        void addcycle(int idx) {
+         Node* temp=head;
+         idx--;
+         while(idx--) {
+            temp=temp->next;
+         }
+         temp->next->next=head->next;
+         //cout<<temp->val<<" "<<head->next->val;
+        }
+         int findlength() {
+            Node* fast=head->next;
+            Node* slow=head;
+            int fl=0;
+            while(fast && fast->next) {
+               if(fast==slow) {
+                  fl=1;
+                  break;
+               }
+               fast=fast->next->next;
+               slow=slow->next;
+            } 
+            if(fl==0) return 0;
+
+            int count=1;
+            slow=slow->next;
+            while(slow!=fast) {
+               count++;
+               slow=slow->next;
+            }
+            return count;
+         } 
+    };
+    int main() {
+       LinkList ll;
+       ll.insertAtHead(50);
+       ll.insertAtHead(24);
+       ll.insertAtHead(84);
+       ll.insertAtHead(14);
+       ll.insertAtHead(54);
+      
+       ll.addcycle(2);
+       cout<<ll.findlength()<<endl;
     }

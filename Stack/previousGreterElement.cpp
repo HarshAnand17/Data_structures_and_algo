@@ -6,21 +6,19 @@ int main() {
      for(int i=0;i<n;i++) {
         cout<<arr[i]<<" ";
      }
-     cout<<endl;
-     stack<int>st;
-     int pge[n];
-    pge[0] = -1;
-    st.push(arr[0]);
-      for(int i=1;i<=n-1;i++) {
-       while(st.size()>0 && st.top()<=arr[i]) {
-        st.pop();
-     }
-     if(st.size()==0) pge[i]=-1;
-     else pge[i]=st.top();
-     st.push(arr[i]);
-}
 
-  for(int i=0;i<n;i++) {
+     int pge[n];
+        pge[0]=-1;
+        stack<int>st;
+        st.push(arr[0]);
+         for(int i=1;i<n;i++) {
+           while(st.top()<=arr[i]) st.pop();
+           if(st.size()>0) pge[i]=st.top();
+           else pge[i]=-1;
+           st.push(arr[i]);
+        }
+      cout<<endl;
+       for(int i=0;i<n;i++) {
         cout<<pge[i]<<" ";
      }
      cout<<endl;

@@ -7,19 +7,18 @@ int main() {
      for(int i=0;i<n;i++) {
         cout<<arr[i]<<" ";
      }
-   int nge[n];
-   for(int i=0;i<n;i++) {
-    nge[i]=-1;
-    for(int j=i+1;j<n;j++) {
-        if(arr[j]>arr[i]) {
-           nge[i]=arr[j];
-           break;
-        }
-    }
-   }
-   cout<<endl;
-    for(int i=0;i<n;i++) {
-        cout<<nge[i]<<" ";
+     cout<<endl;
+     int nge[n];
+     for(int i=0;i<n;i++) {
+      nge[i]=-1;
+      for(int j=i+1;j<n;j++) {
+         if(arr[j]>arr[i]) {
+            nge[i]=arr[j];
+            break;
+      }
      }
-
+   }
+     for(int i=0;i<n;i++) {
+      cout<<nge[i]<<" ";
+     }
 }

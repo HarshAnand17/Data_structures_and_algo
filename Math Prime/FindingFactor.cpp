@@ -1,14 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void PrintFactors(int n) {
-    for(int i=1;i<=n;i++) {
-        if(n%i==0) cout<<i<<" ";
+     string ans="";
+     vector<vector<int > >dp;
+     int f(string &s1,string &s2,int i,int j,string output) {
+        if(output.size()>ans.size()) ans=output;
+        if(i>=s1.size()) return 0;
+        if(j>=s2.size()) return 0;
+        if(dp[i][j]!=-1) return dp[i][j];
+        if(s1[i]==s2[j]) return dp[i][j] = 1+f(s1,s2,i+1,j+1,output+s1[i]);
+        else return dp[i][j]=max(f(s1,s2,i+1,j,output), f(s1,s2,i,j+1,output));
+     }
+        int main() {
+        string s1,s2;
+         cout<<"enter string :";
+         cin>>s1>>s2; 
+        dp.clear();
+        dp.resize(1005,vector<int> (1005,-1));
+        string op="";
+        cout<<f(s1,s2,0,0,op);
+        cout<<ans;
     }
-}
-int main() {
-    int n;
-    cout<<"enter n :";
-    cin>>n;
-    PrintFactors(n);
-}

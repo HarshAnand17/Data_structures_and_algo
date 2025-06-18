@@ -1,30 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int arr[9]={1,2,4,5,9,15,18,20,24};
-    int n=9;
-    int x=19;
-   // int lo=0;
-   // int hi=n-1;
-   //  bool flag=false;
-   //  int mid=-1;
-   // while(lo<=hi) {
-   //     mid=lo+(hi-lo)/2;
-   //    if(arr[mid]==x) {
-   //       flag=true;
-   //       break;
-   //    }
-   //    else if(arr[mid]>x) hi=mid-1;
-   //    else lo=mid+1;
-   // }
-   //  if(flag==true) cout<<arr[mid+1];
-   //  else cout<<arr[lo];
-    for(int i=0;i<n;i++) {
-      if(arr[i]>=x) {
-         cout<<arr[i];
-         break;
-    }
+void display(stack<int>&st) {
+     if(st.size()==0) return;
+     int x=st.top();
+     cout<<x;
+     st.pop();
+     display(st);
+     st.push(x);
 }
+int main() {
+    stack<int>st;
+    st.push(10);//10 20 30 40 50
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50); 
+    display(st)   
 }
      

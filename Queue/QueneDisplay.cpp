@@ -10,6 +10,22 @@ void display(queue<int>&q) {
     }
     cout<<endl;
 }
+void reversefirst(queue<int>&q,int k) {
+    stack<int>st;
+    int n=q.size();
+    for(int i=1;i<=k;i++) {
+        st.push(q.front());
+        q.pop();
+    }
+    while(st.size()>0) {
+        q.push(st.top());
+        st.pop();
+    }
+      for(int i=1;i<=n-k;i++) {
+       q.push(q.front());
+       q.pop();
+    }
+}
 int main() {
     queue<int>q;
     q.push(10);
@@ -18,6 +34,6 @@ int main() {
     q.push(40);
     q.push(50);
     display(q);
-    q.pop();
+    reversefirst(q,2);
     display(q);
 }

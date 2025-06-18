@@ -1,4 +1,4 @@
-if(curr==level) {
-          cout<<root->val<<" ";
-          return;
-     }  
+ if(curr==level) {
+        cout<<head->val<<" ";
+        return;
+    }

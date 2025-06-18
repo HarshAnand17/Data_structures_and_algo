@@ -1,15 +1,28 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int c=0;
+//int c=0;
+// int inversion(vector<int>&a,vector<int>&b) {
+//     int count=0,i=0,j=0;
+//     while(i<a.size() && j<b.size()) {
+//         if(a[i]>b[j]) {
+//             count+=(a.size()-i);
+//             j++;
+//         }
+//         else i++;
+//     }
+//     return count;
+// }
 int inversion(vector<int>&a,vector<int>&b) {
-    int count=0,i=0,j=0;
+    int i=0;
+    int j=0;
+    int count=0;
     while(i<a.size() && j<b.size()) {
-        if(a[i]>b[j]) {
-            count+=(a.size()-i);
-            j++;
-        }
-        else i++;
+      if(a[i]>b[j]) {
+        count+=(a.size()-i);
+        j++;
+      }
+      else i++;
     }
     return count;
 }
@@ -30,9 +43,10 @@ void merge(vector<int>&a,vector<int>&b,vector<int>&v) {
         }
     }
 }
-void mergeSort(vector<int>&v) {
+int mergeSort(vector<int>&v) {
+    int count=0;
     int n=v.size();
-    if(n==1) return;
+    if(n==1) return 0;
     int n1=n/2,n2=n-n1;
    vector<int>a(n1); 
    vector<int>b(n2);
@@ -44,12 +58,13 @@ void mergeSort(vector<int>&v) {
         b[i]=v[i+n1];
     }
 
-    mergeSort(a);
-    mergeSort(b);
-    c+=inversion(a,b);
+    count+=mergeSort(a);
+    count+=mergeSort(b);
+    count+=inversion(a,b);
     merge(a,b,v);
     a.clear();
     b.clear();
+    return count;
 }
 int main() {
    int arr[]={5,1,3,0,4,9,6};
@@ -59,11 +74,11 @@ int main() {
     cout<<v[i]<<" ";
    }
     cout<<endl;
-    mergeSort(v);
+    cout<<mergeSort(v);
     cout<<endl;
-    for(int i=0;i<v.size();i++) {
-    cout<<v[i]<<" ";
-   }
-    cout<<endl;
-    cout<<c;
+//     for(int i=0;i<v.size();i++) {
+//     cout<<v[i]<<" ";
+//    }
+   // cout<<endl;
+    //cout<<c;
 }

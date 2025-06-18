@@ -1,13 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
-void pip(int n) {
-    if(n==0) return;
-    cout<<n;
-    pip(n-1);
-    cout<<n;
-    pip(n-1);
-    cout<<n;
+void Permutation(string ans,string s) {
+    if(s=="") {
+        cout<<ans<<endl;
+        return;
+    }
+    for(int i=0;i<s.size();i++) {
+        string left=s.substr(0,i);
+        string right=s.substr(i+1);
+        Permutation(ans+s[i],left+right);
+    }
 }
 int main() {
-    pip(2);
+    string s="abc";
+    Permutation("",s);
 }

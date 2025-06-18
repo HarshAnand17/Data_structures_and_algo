@@ -1,21 +1,18 @@
- #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
+void display(stack<int>&st) {
+     if(st.size()==0) return;
+     int x=st.top();
+     cout<<x;
+     st.pop();
+     display(st);
+};
 int main() {
- int arr[]={1,2,2,3,3,3,3,3,4,4,5,5,9};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    int x=2;
-   int lo=0;
-   int hi=n-1;
-   int first=-1;
-   while(lo<=hi) {
-    int mid=lo+(hi-lo)/2;
-    if(arr[mid]==x) {
-        first=mid;
-        hi=mid-1;
-    }
-    else if(arr[mid]>x)  hi=mid-1;
-    else lo=mid+1;
-   }
-   cout<<first;
+    stack<int>st;
+    st.push(10);//10 20 30 40 50
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50); 
+     display(st)   
 }

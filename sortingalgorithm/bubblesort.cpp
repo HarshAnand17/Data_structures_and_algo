@@ -1,85 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
+float max(float a,float b) {
+    if(a>=b) return a;
+    else return b;
+}
+float min(float a,float b) {
+    if(a<b) return a;
+    else return b;
+}
 int main() {
-    int arr[]={5,-4,0,3,26,1,99,-80};
-     int n=sizeof(arr)/sizeof(arr[0]);
-     for(int i=0;i<n;i++) {
-        cout<<arr[i]<<" ";
-    }
-
-    
-    for(int i=0;i<n-1;i++) {
-            bool flag=true;
-        for(int j=0;j<n-1-i;j++) {
-            if(arr[j]>arr[j+1]) {
-                //swap
-                int temp=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=temp;
-                flag=false;
-            }
+      int arr[]={5,3,10,3};
+      int n=4;
+      for(int i=0;i<n;i++) cout<<arr[i]<<" ";
+      cout<<endl;
+      bool flag=true;
+      float kmin=float(INT_MIN);
+      float kmax=float(INT_MAX);
+      for(int i=0;i<n-1;i++) {
+        if(arr[i]>=arr[i+1]) {
+            kmin=max(kmin,(arr[i]+arr[i+1])/2.0);
         }
-        if(flag) {
+        else {
+            kmax=min(kmax,(arr[i]+arr[i+1])/2.0);
+        }
+        if(kmin>kmax) {
+            flag=false;
             break;
         }
-    }
-    cout<<endl;
-    for(int i=0;i<n;i++) {
-        cout<<arr[i]<<" ";
-    }
-    
-
-   
-//     for(int i=0;i<n-1;i++) {
-//         bool flag=true;
-//         for(int j=0;j<n-1-i;j++) {
-//              if(arr[j]>arr[j+1]) {
-//                // swap(arr[j],arr[j+1]);
-//                int temp=arr[j];
-//                arr[j]=arr[j+1];
-//                arr[j+1]=temp;
-//                flag=false;
-//              }
-//         }
-//         if(flag) {
-//             break;
-//     }
-//  }
-//     cout<<endl;
-//       for(int i=0;i<n;i++) {
-//         cout<<arr[i]<<" ";
-//     }
-
-    // for(int i=0;i<n-1;i++) {
-    //     for(int j=0;j<n-1-i;j++) {
-    //          if(arr[j]>arr[j+1]) {
-    //            // swap(arr[j],arr[j+1]);
-    //            int temp=arr[j];
-    //            arr[j]=arr[j+1];
-    //            arr[j+1]=temp;
-    //          }
-    //     }
-    // }
-    // cout<<endl;
-    //   for(int i=0;i<n;i++) {
-    //     cout<<arr[i]<<" ";
-    // }
-        
-    //     for(int i=0;i<n-1;i++) {
-
-    //       bool flag=true;
-    //       for(int j=n-1;j>=1+i;j--) {
-    //            if(arr[j]>arr[j-1]){
-    //             swap(arr[j],arr[j-1]);
-    //               flag=false;
-    //             }
-    //            }
-    //            if(flag==false) break;
-    //       }
-    //        cout<<endl;
-    //      for(int i=0;i<n;i++) {
-    //     cout<<arr[i]<<" ";
-    // }
-
+      }
+      if(flag==false) cout<<-1;
+      else if(kmin==kmax) {
+        if(kmin-(int)kmin==0) {
+            cout<<"there is only one value of k :"<<kmin;
+        }
+        else cout<<-1;
+      }
+      else{
+        if(kmin-(int)kmin>0) {
+            kmin=(int)kmin+1;
+        }
+        cout<<"Range of k is : ["<<kmin<<","<<(int)kmax<<"]";
+      }
 }
 

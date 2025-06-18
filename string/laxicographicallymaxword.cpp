@@ -44,6 +44,7 @@ int main() {
         else temp+=s[i];
     }
     sort(w.begin(),w.end());
+    cout<<w[w.size()-1];
 
     return 0;
 }

@@ -6,20 +6,20 @@ int main() {
      for(int i=0;i<n;i++) {
         cout<<arr[i]<<" ";
     }
-     bool flag=true;
-     for(int i=0;i<n;i++) {
-        int count=0;
+    cout<<endl;
+    bool flag=true;
+    for(int i=0;i<n;i++) {
+        int c=0;
         for(int j=0;j<n;j++) {
-            if(i==j) continue;
-            if(arr[j]>arr[i]) count++;
+            if(arr[j]>arr[i]) c++;
         }
-           int aidx=n-count-1;
-            int diff = abs(aidx-i);
-            if(diff>1) {
-                flag=false;
-                break;
-            }
-         }
-           cout<<endl;
-           cout<<flag;     
+        int aidx=n-c-1;
+        int diff=abs(i-aidx);
+        if(diff>1) {
+            flag=false;
+            break;
+        }
+    }
+    if(flag==false) cout<<"element is not sorted";
+    else cout<<"element is sorted";
 }      

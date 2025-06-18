@@ -3,6 +3,7 @@ using namespace std;
 
 vector<list<int>> graph;
 unordered_set<int> visited;
+vector<vector<int>>result;
 int v;
 
 void add_edge(int src,int dest,bool bi_dir = true) {
@@ -11,20 +12,30 @@ void add_edge(int src,int dest,bool bi_dir = true) {
         graph[dest].push_back(src);
     }
 }
-bool dfs(int curr,int end) {
-    if(curr==end) return true;
-    visited.insert(curr);
-    for(auto neighbour:graph[curr]) {
-        if(not visited.count(neighbour)) {
-            bool result = dfs(neighbour,end);
-            if(result) return true;
-        }
-    }
-    return false;
+void dfs(int curr,int end,vector<int>&path) {
+    // if(curr==end) {
+    //    path.push_back(curr);
+    //    result.push_back(path);
+    //    path.pop_back();
+    //    return;
+    // }
+    // visited.insert(curr);
+    // path.push_back(curr);
+    // for(auto neighbour:graph[curr]) {
+    //     if(not visited.count(neighbour)) {
+    //         dfs(neighbour,end,path);
+    //     }
+    // }
+    // path.pop_back();
+    // visited.erase(curr);
+   // return;
+
+   
 }
 
-bool anyPath(int src,int dest) {
-        return dfs(src,dest);
+void allPath(int src,int dest) {
+    vector<int>v;
+    dfs(src,dest,v);
 }
 int main() {
     cin>>v;
@@ -34,10 +45,16 @@ int main() {
     while(e--) {
       int s,d;
       cin>>s>>d;
-      add_edge(s,d,false);
+      add_edge(s,d);
     }
     int x,y;
     cin>>x>>y;
-    cout<<anyPath(x,y)<<"\n";
+    allPath(x,y);
+    for(auto path:result) {
+        for(auto ele:path) {
+            cout<<ele<<" ";
+        }
+        cout<<endl;
+    }
     return 0;
 }

@@ -1,20 +1,37 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int arr[]={1,2,2,3,4,5};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    int lo=0;
-    int hi=n-1;
-     while(lo<=hi) {
-        int mid=lo+(hi-lo)/2;
-        if(arr[mid]==mid+1) lo=mid+1;
-        else if(arr[mid]==mid) {
-            if(arr[mid]==arr[mid-1]) {
-                cout<<arr[mid]<<" is repeated no.";
-                break;
+    int countPairs(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int n=nums.size();
+        int count=0;
+        for(int i=0;i<n-1;i++) {
+            // string x=to_string(nums[i]);
+          for(int j=i+1;j<n;j++) {
+            if(nums[i]==nums[j]){
+                count++;continue;
             }
-            else hi=mid-1;
+             bool flag=false;
+             string y=to_string(nums[j]);
+             for(int i1=0;i1<y.size()-1;i1++) {
+                for(int j1=i1+1;j1<y.size();j1++){
+                swap(y[i1],y[j1]);
+                if(nums[i]==stoi(y)) {
+                    count++;
+                    flag=true;
+                }
+                if(flag) break;
+                swap(y[i1],y[j1]);
+                }
+                if(flag) break;
+             }
+          }
         }
-     }
+        return count;
+    }
+int main() {
+    vector<int>v={1,1,1,1,1};
+    // sort(v.begin(),v.end());
+    // for(int i=0;i<v.size();i++) cout<<v[i]<<" "<<endl;ṇ
+    cout<<countPairs(v);
 }

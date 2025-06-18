@@ -3,13 +3,16 @@ using namespace std;
 
 int main() {
     int n;
-    cout<<"enter n : ";
     cin>>n;
-    for(int i=1;i<=n;i++) {
-        for(int j=1;j<=i;j++) {
-            if((i+j)%2==0) cout<<1;
-            else cout<<0;
+    int f=-1;
+    int L=-1;
+    while(n>0) {
+        int l=n%10;
+        if(L==-1) {
+            L=l;
         }
-        cout<<endl;
+        else f=l;
+        n/=10;
     }
+    cout<<f<<" "<<L;
 }

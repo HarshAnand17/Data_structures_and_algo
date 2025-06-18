@@ -3,25 +3,9 @@ using namespace std;
 
 int main() {
   
-//    int n=23;
-//    int m=n;
-//     n=n|(n>>1);
-//     n=n|(n>>2);
-//     n=n|(n>>4);
-//     n=n|(n>>8);
-
-//    int  y=m^n;
-//     cout<<y;
-
-    int n=23;
-    int temp;
-    int x=n;
-   while(n>0) {
-      temp=n;
-      n=(n)&(n-1);
-   }
-   temp=(temp<<1)-1;
-
-   int y=temp^x;
-    cout<<y;
+int n;
+cout<<"Enter n : ";
+cin>>n;
+if((n%5==0 || n%3==0) && n%15!=0) cout<<"The number is divisible by 5 or 3 but not 15";
+else cout<<"not matching condition";
 }

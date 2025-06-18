@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool isPrime(int n) {
-if(n==1) return false;  
-    for(int i=2;i<=n-1;i++) {
-        if(n%i==0)    return false;
+void print(int n) {
+    for(int i=1;i<=sqrt(n);i++) {
+        if(n%i==0) {
+          if(i!=n/i) cout<<i<<" ";
+        }  
     }
-    return true;
+    for(int i=sqrt(n);i>=1;i--) {
+        if(n%i==0)   cout<<n/i<<" ";   
+    }
 }
 int main() {
-    int n;
-    cout<<"enter n :";
-    cin>>n;
-    cout<<isPrime(n);
+  print(60);
 }

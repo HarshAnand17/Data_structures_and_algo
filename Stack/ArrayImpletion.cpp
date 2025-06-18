@@ -1,55 +1,43 @@
 #include<bits/stdc++.h>
 using namespace std;
-class Stack{
+class Stack {
 public:
-   int arr[5];
-   int idx=-1;
-//    Stack() {
-//       idx=-1;
-//    }
+   vector<int>v;
+   Stack() {
+   }
    void push(int val) {
-       if(idx==4) {
-        cout<<"stack is full"<<endl;
-        return;
-       }
-        idx++;
-        arr[idx]=val;
+      v.push_back(val);
    }
    void pop() {
-      if(idx==-1) {
-        cout<<"stack is empty"<<endl;
-        return;
-       }
-      idx--;
+      if(v.size()==0) {
+         cout<<"stack is empty"<<endl;
+         return;
+      }
+      v.pop_back();
    }
    int top() {
-     if(idx==-1) {
-        cout<<"stack is empty"<<endl;
-        return -1;
-       }
-    return arr[idx];
+      if(v.size()==0) {
+         cout<<"stack is empty"<<endl;
+         return -1;
+      }
+      return v.back();
    }
    int size() {
-    return idx+1;
-   }
-   void display() {
-     for(int i=0;i<=idx;i++) {
-        cout<<arr[i]<<" ";
-     }
-     cout<<endl;
+      return v.size();
    }
 };
 int main() {
     Stack st;
     cout<<st.top()<<endl;
-    st.pop();
     st.push(10);
     st.push(20);
     st.push(30);
     st.push(40);
     st.push(50);
     st.push(60);
-   cout<<st.size()<<endl;
+    cout<<st.size()<<endl;
     cout<<st.top()<<endl;
-    st.display();
-}
+    st.pop();
+     cout<<st.size()<<endl;
+    cout<<st.top()<<endl;
+ }

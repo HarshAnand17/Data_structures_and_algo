@@ -21,6 +21,6 @@ int main() {
               int ans = solve(val1,val2,s[i]);
               val.push(ans);
             }
-     }
+        }
         cout<<val.top();
      }

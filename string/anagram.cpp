@@ -2,14 +2,14 @@
 using namespace std;
 
 int main() {
-    string s;
-   getline(cin,s);
-   cout<<s<<endl;
-    string t;
-   getline(cin,t);
-   cout<<t<<endl;
-   sort(s.begin(),s.end());
-   sort(t.begin(),t.end());
-   if(s==t) cout<<1;
-   else cout<<0;
+     string s="leetcode";
+     int n=s.size();
+     vector<int>ans(26,0);
+     for(int i=0;i<n;i++) {
+        ans[s[i]-97]++;
+     }
+     int maxi=*max_element(ans.begin(),ans.end());
+     for(int i=0;ans.size();i++) {
+        if(ans[i]==maxi) cout<<char(i+97)<<" "<<maxi<<endl;
+     }
 }

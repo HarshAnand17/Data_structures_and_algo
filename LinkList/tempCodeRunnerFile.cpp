@@ -1,4 +1,4 @@
-  a.next=&b;
-   //   b.next=&c;
-   //   c.next=&d;
-   //   d.next=NULL;
+    tail=tail->prev;
+       if(tail!=NULL) head->next=NULL;
+       if(tail==NULL) tail=NULL;
+       size--;

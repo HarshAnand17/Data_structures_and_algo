@@ -16,15 +16,22 @@ using namespace std;
 //    return 0;
 //}
 
+// vector<int> factorial(int n) {
+//   vector<int>fact(n+1,1);
+//   int MOD=1000000000+7;
+//   for(int i=2;i<=n;i++) {
+//       fact[i] = ((i%MOD) *(fact[i-1]%MOD))%MOD;
+//   }
+//   return fact;
+// }
+int MOD=1000000000+7;
 vector<long long> factorial(int n) {
   vector<long long>fact(n+1,1);
-  int MOD=1000000000+7;
   for(int i=2;i<=n;i++) {
-      fact[i] = ((i%MOD) *(fact[i-1]%MOD))%MOD;
+    fact[i]=((i%MOD)*(fact[i-1]%MOD))%MOD;
   }
   return fact;
 }
-
 int main() {
   vector<long long> res = factorial(25);
 

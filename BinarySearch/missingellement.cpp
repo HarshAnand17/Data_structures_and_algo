@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int arr[]={0,1,2,4,5,6,9,12};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    int lo=0;
-    int hi=n-1;
-    int ans=-1;
-    while(lo<=hi) {
-     int mid=lo+(hi-lo)/2;
-     if(arr[mid]==mid) lo=mid+1;
-     else if(arr[mid]!=mid) {
-          ans=mid;
-          hi=mid-1;
+void display(stack<int>&st) {
+     if(st.size()==0) return;
+     int x=st.top();
+     cout<<x;
+     st.pop();
+     display(st);
+     st.push(x);
 }
-    }
-     cout<<lo;
+int main() {
+    stack<int>st;
+    st.push(10);//10 20 30 40 50
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50); 
+    display(st)   
 }
