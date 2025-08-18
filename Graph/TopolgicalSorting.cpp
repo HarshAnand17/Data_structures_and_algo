@@ -20,7 +20,7 @@ void topoBfs() {
     for(int i=0;i<v;i++) {
         if(indegree[i]==0) {
             q.push(i);
-            visited.insert(i);
+           // visited.insert(i);
         }
     }
     cout<<"starting bfs "<<endl;

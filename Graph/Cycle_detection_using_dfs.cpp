@@ -20,6 +20,7 @@ void display() {
 }
 
 bool dfs(int src,int parent,unordered_set<int>&vis) {
+    //TC=O(V+E)
     vis.insert(src);
     for(auto neighbour:graph[src]) {
         if(vis.count(neighbour) && neighbour!=parent) {

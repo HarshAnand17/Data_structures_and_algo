@@ -33,8 +33,36 @@ int minProduct(vector<int> &arr) {
         }
     }
 }
+
+int minProduct2(vector<int> &arr) {
+    int n=arr.size();
+    int cp=0,cn=0,cz=0,cpp=1,cnp=1,mxn=INT_MIN;
+    for(int i=0;i<n;i++) {
+        if(arr[i]>0) {
+            cp++;
+            cpp*=arr[i];
+        }
+        else if(arr[i]<0) {
+            cn++;
+            cnp*=arr[i];
+            mxn=max(mxn,arr[i]);
+        }
+        else cz++;
+    }
+
+    if(cn==0) {
+        if(cz>0) return 0;
+        else  {
+            auto it=*min_element(arr.begin(),arr.end());
+             return it;
+        }
+    }
+    else {
+        if(cn%2!=0) return cnp*cpp;
+        else return (cnp/mxn)*cpp;
+    }
+}
 int main() {
-     vector<int>arr={-2,-3,1,4,-2,-5};
-     cout<<minProduct(arr)<<"\n";
-     return 0;
+     vector<int>arr={-2,-3,1,4,-2};
+     cout<<minProduct2(arr)<<"\n";
 }

@@ -31,6 +31,39 @@ int minCostToBreakGrid(int n,int m,vector<int>&vertical,vector<int>&horizontal) 
     }
     return ans;
 }
+
+int minCostToBreakGrid2(int n,int m,vector<int>&vertical,vector<int>&horizontal) {
+    sort(vertical.begin(),vertical.end());
+    sort(horizontal.begin(),horizontal.end());
+    int horri=1,vert=1,result=0;
+    int i=0;
+    int j=0;
+    while(i<m && j<n) {
+        if(vertical[i]>horizontal[j]) {
+            result+=vertical[i]*vert;
+            horri++;
+            i++;
+        }
+        else {
+            result+=horizontal[i]*horri;
+            vert++;
+            j++;
+        }
+    }
+
+    while(i<m) {
+        result+=vertical[i]*vert;
+            horri++;
+            i++;
+    }
+
+    while(j<n) {
+         result+=horizontal[i]*horri;
+         vert++;
+         j++;
+    }
+    return result;
+}
 int main() {
     int n,m;
     cin>>m>>n;

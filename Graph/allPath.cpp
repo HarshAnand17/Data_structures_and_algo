@@ -10,17 +10,7 @@ void add_edge(int src,int dest,bool bi_dir=true) {
     }
 }
 
-// bool dfs(int curr,int end) {
-//     if(curr==end) return true;
-//     visit.insert(curr);
-//     for(auto neighbour:graph[curr]) {
-//         if(!visit.count(neighbour)) {
-//             bool result=dfs(neighbour,end);
-//             if(result) return true;
-//         }
-//     }
-//     return false;
-// }
+
 
 bool dfs(int curr,int end) {
     if(curr==end) return true;

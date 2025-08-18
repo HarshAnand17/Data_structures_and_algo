@@ -32,23 +32,7 @@ void bfs(int src,vector<int>&dist) {
       }
       cout<<endl;
 }
-// void bfs(int src,vector<int>&dist) {
-//      queue<int>q;
-//      q.push(src);
-//      dist[src]=0;
-//      visited.insert(src);
-//      while(!q.empty()) {
-//             int c=q.front();
-//             q.pop();
-//             for(auto neig:graph[c]) {
-//                 if(!visited.count(neig)) {
-//                     q.push(neigh);
-//                     visited.insert(neigh);
-//                     dist[neigh]=dist[c]+1;
-//                 }
-//             }                     
-//      }
-// }
+
 int main() {
     cin>>v;
     graph.resize(v,list<int> ());

@@ -10,7 +10,7 @@ void add_edge(int u,int v,int wt,bool bidir=true) {
      }
 }
 unordered_map<int,int> dijkstra(int src,int n) {
-    priority_queue<pp,vector<pp> ,greater<pp> > pq;//{wt,node}
+    priority_queue<pp,vector<pp> ,greater<pp> > pq;//{dist,node}
     unordered_set<int>vis;
     vector<int> via(n);
     unordered_map<int,int>mp;

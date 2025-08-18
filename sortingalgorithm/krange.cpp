@@ -44,5 +44,4 @@ int main() {
         }
         cout<<"range of k is : ["<<kmin<<","<<(int)kmax<<"]";
     }
-
 }

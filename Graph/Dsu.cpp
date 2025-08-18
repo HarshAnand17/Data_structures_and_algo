@@ -21,6 +21,7 @@ void Union(vector<int>&parent,vector<int>&rank,int a,int b) {
 int main() {
     int n,m;
     cin>>n>>m;
+    //1-based indexing
     vector<int>parent(n+1);
     vector<int>rank(n+1,0);
     for(int i=0;i<=n;i++) {

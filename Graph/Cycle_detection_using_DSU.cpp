@@ -19,7 +19,10 @@ bool Union(vector<int>&parent,vector<int>&rank,int a,int b) {
     return false;
 }
 int main() {
+    //overall TC=O(elog*v)~O(e) b/c log*v is contant
     int n,m;
+    //n is no of vertex
+    //m is no of queries is equal to no of edges
     cin>>n>>m;
     vector<int>parent(n+1);
     vector<int>rank(n+1,0);
