@@ -19,8 +19,8 @@ void display() {
      }
 }
 
-bool bfs(int src) {
-     unordered_set<int> vis;
+bool bfs(int src, unordered_set<int>&vis) {
+     //unordered_set<int> vis;
      queue<int>q;
      vector<int>par(v,-1);
      q.push(src);
@@ -44,7 +44,7 @@ bool has_cycle() {
      unordered_set<int>vis;
      for(int i=0;i<v;i++) {
         if(!vis.count(i)) {
-            bool result=bfs(i);
+            bool result=bfs(i,vis);
             if(result==true) return true;
         }
      }

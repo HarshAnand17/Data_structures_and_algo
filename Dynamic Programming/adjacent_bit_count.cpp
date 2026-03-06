@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int dp[105][105][2];
 int f(int n,int k,int last) {
     if(n==0) return 0;

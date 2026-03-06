@@ -7,14 +7,11 @@ public://can,t be access,can't be inherited
     int lights;
     string companyname;
    virtual void calculatorMilege() = 0;
-   virtual void refual() = 0;
+   virtual void refuel() = 0;
 };
 class Bike : public Vehicle {//a_ka_protected,a_ka_public_as_protected
     public:
-    int handleSize;
-    // void show() {
-    //    cout<<"Bike ka show";
-    // }   
+    int handleSize;  
     void calculatorMilege() {
        cout<<"Bike ka show";
     }   
@@ -25,8 +22,8 @@ class Bike : public Vehicle {//a_ka_protected,a_ka_public_as_protected
 
 int main() {
 
-// Vehicle v;
-// v.calculatorMilege();
+Vehicle v;
+v.calculatorMilege();
 
 // Bike b;
 // b.calculatorMilege();

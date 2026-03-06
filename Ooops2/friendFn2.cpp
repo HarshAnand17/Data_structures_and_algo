@@ -31,5 +31,5 @@ int main() {
    a2.real=5;
    ComplexNumber a3=a1+a2;
 
-   //cout<<"real "<<a3.real<<" "<<"imaginary :"<<a3.imaginary<<endl;
+   cout<<"real "<<a3.real<<" "<<"imaginary :"<<a3.imaginary<<endl;
 }

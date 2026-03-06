@@ -20,16 +20,23 @@ int main() {
     //runtime POV-Bike ka Address hai
     //compile time Binding
     //runtime Binding
-    Bike b;
-    Vehicle *a;
-    a=&b;
-    a->handleSize=10;
-    a->tyreSize=5;
-    a->show();
-
+    
+    // Bike b;
     // Vehicle *a;
-    // a=new Bike;
+    // a=&b;
+    // a->handleSize=10;
+    // a->tyreSize=5;
     // a->show();
-    // a=new Vehicle;
-    // a->show();
+    
+
+    // Vehicle v;
+    // v.show();
+    // Bike B;
+    // B.show();
+    // B.Vehicle::show();
+    Vehicle *a;
+    a=new Bike;
+    a->show();
+    a=new Vehicle;
+    a->show();
 }

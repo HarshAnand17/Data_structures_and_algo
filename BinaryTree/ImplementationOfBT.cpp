@@ -19,17 +19,22 @@ void display(Node* head) {
 }
 int sum(Node* head) {
     if(head==NULL) return 0;
-    int left=sum(head->left);
-    int right=sum(head->right);
-    return head->val+left+right;
+    return head->val+ sum(head->left)+sum(head->right);
 }
+
 int size(Node* head) {
     if(head==NULL) return 0;
     return 1+size(head->left)+size(head->right);
 }
+
 int mx(Node* head) {
     if(head==NULL) return INT_MIN;
     return max(head->val,max(mx(head->left),mx(head->right)));
+}
+
+int mx2(Node* head) {
+    if(head==NULL) return INT_MIN;
+    return max({head->val,(mx2(head->left),mx2(head->right))});
 }
 int levels(Node* head) {
     if(head==NULL) return 0;
@@ -116,33 +121,37 @@ Node* construct(int arr[],int n) {
     return root;
  }
 int main() {
-    // Node* a=new Node(1);
-    // Node* b=new Node(2);
-    // Node* c=new Node(3);
-    // Node* d=new Node(4);
-    // Node* e=new Node(5);
-    // Node* f=new Node(6);
-    // Node* g=new Node(7);
+    Node* a=new Node(1);
+    Node* b=new Node(2);
+    Node* c=new Node(3);
+    Node* d=new Node(4);
+    Node* e=new Node(5);
+    Node* f=new Node(6);
+    Node* g=new Node(7);
 
-    // a->left=b;
-    // a->right=c;
-    // b->left=d;
-    // b->right=e;
-    // c->left=f;
-    // c->right=g;
+    a->left=b;
+    a->right=c;
+    b->left=d;
+    b->right=e;
+    c->left=f;
+    c->right=g;
 
-    //display(a);
-    //cout<<sum(a);
+    display(a);
+    cout<<endl;
+    cout<<sum(a)<<" ";
     //cout<<size(a);
-   // cout<<mx(a);
+   cout<<mx(a)<<" ";
+   cout<<mx2(a);
    //cout<<levels(a);
 //    print(a,1,1);
 //    print(a,1,2);
 //    print(a,1,3);
 
 //    levelOrder(a);
-   int arr[]={1,2,3,4,5,INT_MIN,6,INT_MIN,INT_MIN,7,8,9};
-   int n=sizeof(arr)/sizeof(arr[0]);
-   Node* root=construct(arr,n);
-   Bfs(root);
+
+
+//    int arr[]={1,2,3,4,5,INT_MIN,6,INT_MIN,INT_MIN,7,8,9};
+//    int n=sizeof(arr)/sizeof(arr[0]);
+//    Node* root=construct(arr,n);
+//    Bfs(root);
 }

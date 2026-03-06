@@ -44,6 +44,7 @@ int main() {
       cin>>s>>d;
       add_edge(s,d);
     }
+    cout<<endl<<"hi";
     int x,y;
     cin>>x>>y;
     allPath(x,y);

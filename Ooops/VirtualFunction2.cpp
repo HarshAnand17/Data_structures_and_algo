@@ -6,7 +6,7 @@ public://can,t be access,can't be inherited
     int engSize;
     int lights;
     string companyname;
-   void show() {
+    virtual void show() {
       cout<<"Vehicle ka show";
    }
 };

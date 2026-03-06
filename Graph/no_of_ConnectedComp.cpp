@@ -10,51 +10,33 @@ void add_edge(int src,int dest,bool bi_dir=true) {
     }
 }
 
-// void dfs(int node,unordered_set<int>&visited) {
-//     visited.insert(node);
-//     for(auto neighbour:graph[node]) {
-//         if(not visited.count(neighbour)) dfs(neighbour,visited);
-//     }
-// }
-// int connected_comp() {
-//     int result=0;
-//     unordered_set<int>visited;
-//     for(int i=0;i<v;i++) {
-//         if(visited.count(i)==0) {
-//             result++;
-//             dfs(i,visited);
-//         }
-//     }
-//     return result;
-// }
-  void dfs(int node,unordered_set<int>&visited) {
-     for(auto neighbours:graph[node]) {
-        if(visited.count(neighbours)==0) {
-            visited.insert(neighbours);
-            dfs(neighbours,visited);
-        }
-     }
-  }
-  int connected_comp() {
-      int res=0;
-      unordered_set<int>visited;
-      for(int i=0;i<v;i++) {
+void dfs(int node,unordered_set<int>&visited) {
+    visited.insert(node);
+    for(auto neighbour:graph[node]) {
+        if(!visited.count(neighbour)) dfs(neighbour,visited);
+    }
+}
+int connected_comp() {
+    int result=0;
+    unordered_set<int>visited;
+    for(int i=0;i<v;i++) {
         if(visited.count(i)==0) {
-            res++;
+            result++;
             dfs(i,visited);
         }
-      }
-      return res;
-  }
+    }
+    return result;
+}
 int main() {
     cin>>v;
+    graph.clear();
     graph.resize(v,list<int>());
     int e;
     cin>>e;
     while(e--) {
         int s,d;
         cin>>s>>d;
-        add_edge(s,d,false);
+        add_edge(s,d);
     }
     cout<<connected_comp();
 }

@@ -20,7 +20,7 @@ void bfs(int src,vector<int>&dist) {
       q.push(src);
       while(!q.empty()) {
         int curr=q.front();
-        cout<<curr<<" ";
+        //cout<<curr<<" ";
         q.pop();
         for(auto neighbour:graph[curr]) {
             if(!visited.count(neighbour)) {

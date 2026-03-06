@@ -2,7 +2,14 @@
 using namespace std;
 
 int main() {
-  vector<int>cost={5,3,1,2,9,4,3,10,8};
-  sort(cost.begin(),cost.end(),greater<int>());
-  for(int i=0;i<cost.size();i++) cout<<cost[i]<<" ";
+    int n;
+    cin>>n;
+    int a=1,b=1;
+    int sum;
+    for(int i=1;i<=n;i++) {
+       count<<a<<" ";
+       sum=a+b;
+       a=b;
+       b=sum;
+    }
 }

@@ -5,11 +5,11 @@ class player{
     int score;
     int health;
     public:
-    void setScore(int s) {
-        score = s;
+    void setScore(int score) {
+        this->score=score;
     }
-      int getScore() {
-         return score;
+    int getScore() {
+         return this->score;
       }
     void sethealth(int h) {
         health=h;
@@ -21,9 +21,8 @@ class player{
 };
 int main() {
    player harsh;
-   harsh.score=5;
-//   harsh.setScore(10);
-//    cout<<harsh.getScore()<<endl;
+   harsh.setScore(10);
+   cout<<harsh.getScore()<<endl;
 //   harsh.sethealth(20);
 //   cout<<harsh.gethealth();
 }

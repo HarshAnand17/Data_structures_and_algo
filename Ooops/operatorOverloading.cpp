@@ -24,7 +24,6 @@ public:
       c3.imaginary = c1.imaginary + this->imaginary;
       c3.real = c1.real + this->real;
       return c3;
-
   }
 };
 int main() {

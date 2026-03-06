@@ -14,7 +14,7 @@ public:
             }
             else break;
         }
-    }
+     }
     void downheapfy(int idx) {
          while(idx<hp.size()) {
             int lc=2*idx+1;
@@ -75,6 +75,8 @@ int main() {
     hp.display();
     hp.push(100);
     hp.display();
+    hp.pop();
+     hp.display();
     //cout<<hp.peek();
     return 0;
 }

@@ -16,7 +16,7 @@ int f(int n) {
     vector<int>d=get_digit(n);
     int result=INT_MAX;
     for(int i=0;i<d.size();i++) {
-        result=min(f(n-d[i]),result);
+        result=min(result,f(n-d[i]));
     }
     return dp[n]=1+result;
 }
@@ -38,6 +38,6 @@ int main() {
    int n;
    cin>>n;
    dp.resize(1000005,-1);
+   cout<<f(n)<<endl;
    cout<<fbu(n);
-  // cout<<f(n)<<endl;
 }

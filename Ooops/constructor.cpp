@@ -22,5 +22,4 @@ int main() {
     //    cout<<tvs.tyreSize<<" "<<tvs.engSize<<endl;
     //    cout<<honda.tyreSize<<" "<<honda.engSize<<endl;
     //    cout<<suziki.tyreSize<<" "<<suziki.engSize<<endl;
-    //   Bike a();
 }

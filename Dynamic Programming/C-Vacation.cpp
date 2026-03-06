@@ -1,11 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int main() {
     int n;
     cin>>n;
     vector<vector<int>>dp(n,vector<int>(3,0));
-    
     //base case
     int a,b,c;
     cin>>a>>b>>c;

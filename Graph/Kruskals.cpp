@@ -25,17 +25,17 @@ using namespace std;
     bool cmp(Edge e1,Edge e2) {
         return e1.wt<e2.wt;
     }
-    ll Kruskal(vector<Edge>&input,int n,int e) {
-        sort(input.begin(),input.end(),cmp);
+    ll Kruskal(vector<Edge>&input,int n,int e) {//O(v+ElogE)
+        sort(input.begin(),input.end(),cmp);//ElogE
         vector<int>parent(n+1);
         vector<int>rank(n+1,1);
         for(int i=0;i<=n;i++) {
             parent[i]=i;
         }
-        int edgeCount=0;
+        int edgeCount=0;//n-1
         int i=0;
         ll ans=0;
-        while(edgeCount<n-1 and i<input.size()) {
+        while(edgeCount<n-1 and i<input.size()) {//v-1~O(vlog*v)~O(v)
              Edge curr=input[i];//b/c input sorted so we will get min wt edge
              int srcPar=find(parent,curr.src);
              int destpar=find(parent,curr.dest);

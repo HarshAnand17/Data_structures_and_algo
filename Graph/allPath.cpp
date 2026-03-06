@@ -9,9 +9,6 @@ void add_edge(int src,int dest,bool bi_dir=true) {
         graph[dest].push_back(src);
     }
 }
-
-
-
 bool dfs(int curr,int end) {
     if(curr==end) return true;
     visit.insert(curr);

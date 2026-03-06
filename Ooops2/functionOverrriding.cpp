@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 class A{
-    private:
+    public:
     int a_ka_private;
     public:
     int a_ka_public;
@@ -22,6 +22,5 @@ int main() {
     B b;
     b.show();
     b.A::show();
-
     //accessing through pointer
 }

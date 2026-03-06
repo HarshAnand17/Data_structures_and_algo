@@ -1,4 +1,2 @@
-    tail=tail->prev;
-       if(tail!=NULL) head->next=NULL;
-       if(tail==NULL) tail=NULL;
-       size--;
+ // head=insertBeforeVal(head,400,20);
+    // print(head);

@@ -65,19 +65,18 @@ public:
         hp=v;
         //TC : o(n)
        int n=hp.size();
-       i=n;
+       //i=n;
         for(int j=n/2;j>=0;j--) {
-            downheapify(j,i);
+            downheapify(j,n);
         }
     }
     void heapsort() {
         int sz=hp.size();
         while(sz>0) {
-            int el = 0;
-           swap(hp[el],hp[i]);
-           i--;
+           swap(hp[0],hp[sz-1]);
+         //  i--;
            sz--;
-           downheapify(0,i);
+           downheapify(0,sz);
         }
            cout<<"[";
         for(int j=0;j<hp.size();j++) {
@@ -93,7 +92,5 @@ void heapsort(vector<int>&v) {
 int main() {
     vector<int>v = {9,6,1,19,3,2,8,12,5};
     heapsort(v);
-    return 0;
-
-    
+    return 0;   
 }

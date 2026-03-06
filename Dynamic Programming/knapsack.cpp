@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//vector<vector<int>>dp(105,vector<int>(100005,-1));
-vector<vector<int>>dp;
+vector<vector<int>>dp(105,vector<int>(100005,-1));
+//vector<vector<int>>dp;
 int f(vector<int> &wts,vector<int> &val,int idx,int W) {
     if(idx==wts.size()) return 0;
     if(dp[idx][W]!=-1) return dp[idx][W];
@@ -14,7 +14,6 @@ int f(vector<int> &wts,vector<int> &val,int idx,int W) {
     }
     return dp[idx][W]=ans;
 }
-
 int fbu(vector<int> &wts,vector<int> &val,int W) {
     dp.resize(105,vector<int>(100005,0));
     int n=wts.size();
@@ -41,6 +40,6 @@ int main() {
         wts.push_back(w);
         val.push_back(v);
     }
-    //cout<<f(wts,val,0,W)<<"\n";
-    cout<<fbu(wts,val,W);
+    cout<<f(wts,val,0,W)<<"\n";
+    //cout<<fbu(wts,val,W);
 }

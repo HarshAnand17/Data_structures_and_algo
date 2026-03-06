@@ -4,9 +4,9 @@ class Bike{
     public:
     int tyreSize;
     int engSize;
-     Bike(int tyreSize,int engsize) {
-        this->tyreSize = tyreSize;
-         this->engSize= engSize;
+     Bike(int tyreSize,int engSize) {
+        this->tyreSize =tyreSize;
+         this->engSize=engSize;
         cout<<"constructor call hua\n";
      }
      ~Bike() {
@@ -19,7 +19,7 @@ int main() {
        Bike suziki(37,17);
       bool flag=true;
        if(flag==true) {
-            Bike bmw(17,1000);
+            Bike bmw(17,10);
             cout<<bmw.tyreSize<<" "<<bmw.engSize<<endl;
        }
       

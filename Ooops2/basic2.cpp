@@ -25,12 +25,12 @@ class Calculator {
       int a;
       int b;
       public:
-    //   void add() {
-    //         cout<<a+b<<endl;
-    //   }
-    //   void subtract() {
-    //         cout<<a-b;
-    //   }
+      void add() {
+            cout<<a+b<<endl;
+      }
+      void subtract() {
+            cout<<a-b;
+      }
 
 
 };

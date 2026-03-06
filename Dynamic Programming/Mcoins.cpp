@@ -4,7 +4,6 @@ using namespace std;
 int main() {
     int k,l,m;
     cin>>k>>l>>m;
-    
     vector<bool> dp(1000005,0);
 
     dp[k]=1;

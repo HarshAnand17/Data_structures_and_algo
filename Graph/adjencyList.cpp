@@ -1,65 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-vector<list<int>>graph;
-void add_edge(int src,int dest,bool bi_dir=true) {
-     graph[src].push_back(dest);
-     if(bi_dir) {
-      graph[dest].push_back(src);
+vector<list<int>>v;
+void add_edge(int src,int dest,bool dir=true) {
+     v[src].push_back(dest);
+     if(dir==true) {
+       v[dest].push_back(src);
      }
 }
-
 void display() {
-     for(int i=0;i<graph.size();i++) {
+    for(int i=0;i<v.size();i++) {
       cout<<i<<" -> ";
-      for(auto ele:graph[i]) {
-        cout<<ele<<" , ";
-      }
-      cout<<"\n";
-     }
+        for(auto x:v[i]) {
+           cout<<x<<" ";
+        }
+        cout<<endl;
+    }
 }
+
 int main() {
-   int v;
-    cin>>v;
-    graph.resize(v,list<int>());
-    int e;
-    cin>>e;
+    int n,e;
+    cin>>n>>e;
+    v.resize(n,list<int>());
     while(e--) {
       int s,d;
       cin>>s>>d;
-      add_edge(s,d,false);
+      add_edge(s,d);
     }
+
     display();
-    return 0;
 }
 
 
-// vector<list<int>>graph;
-// int v;
-// void add_edge(int src,int dest,bool bi_dir=true) {
-//      graph[src].push_back(dest);
-//      if(bi_dir) {
-//        graph[dest].push_back(src);
-//      }
-// }
-// void display() {
-//     for(int i=0;i<graph.size();i++) {
-//       cout<<i<<" -> ";
-//       for(auto el:graph[i]) {
-//         cout<<el<<" , ";
-//       }
-//       cout<<endl;
-//     }
-// }
-// int main() {
-//     cin>>v;
-//     graph.resize(v,list<int>());
-//     int e;
-//     cin>>e;
-//     while(e--) {
-//       int s,d;
-//       cin>>s>>d;
-//       add_edge(s,d);
-//     }
-//     display();
-// }

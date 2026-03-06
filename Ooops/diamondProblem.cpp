@@ -9,7 +9,7 @@ public:
         cout<<"A constructor call ho raha hai\n";
      }
 };
-class B : virtual public A {//a_ka_protected,a_ka_public_as_protected
+class B :virtual public A {
     public:
     int b_ka_public;
     B() {
@@ -18,7 +18,7 @@ class B : virtual public A {//a_ka_protected,a_ka_public_as_protected
     
 
 };
-class C :virtual public A{ //b_ka_public as public,a_ka_protected,a_ka_public as protected
+class C :virtual public A{ 
 public:
     int c_ka_public;
       C() {
@@ -26,20 +26,20 @@ public:
      }
      
 };
-class D : public B,public C{ //b_ka_public as public,a_ka_protected,a_ka_public as protected
+class D : public B,public C{
 public:
     int d_ka_public;
     //  void sow(){
     //     cout<<B::a_ka_public;
     //  }
-     void sow(){
+     void show(){
         cout<<a_ka_public;
      }
      
 };
 int main() {
-D d;
+ D d;
  d.a_ka_public = 10;
- d.sow();
+ d.show();
    
 }

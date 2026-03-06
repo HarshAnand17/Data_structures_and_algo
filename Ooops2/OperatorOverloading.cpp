@@ -38,12 +38,6 @@ class  ComplexNumber{
 //     }
 // };
 int main() {
-//    A a1,a2;
-//    a1.age=10;
-//    a2.age=20;
-
-//    A a3;
-//    a3.age=a1.age+a2.age;
 
    ComplexNumber a1,a2;
    a1.imaginary=10;

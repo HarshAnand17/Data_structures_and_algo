@@ -1,2 +1,1 @@
- hp.pop();
-    hp.display();
+  int el = 0;

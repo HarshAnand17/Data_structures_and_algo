@@ -3,9 +3,8 @@ using namespace std;
 
 int main() {
   
-int n;
-cout<<"Enter n : ";
-cin>>n;
-if((n%5==0 || n%3==0) && n%15!=0) cout<<"The number is divisible by 5 or 3 but not 15";
-else cout<<"not matching condition";
+  int x=23;
+  int y=31;
+  //cout<<__builtin_popcount(x^y);
+  cout<<5^0;
 }

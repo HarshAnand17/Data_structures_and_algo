@@ -55,7 +55,6 @@ void leftBoundary(Node* root) {
      cout<<root->val<<" ";
      leftBoundary(root->left);
      if(root->left==NULL) leftBoundary(root->right);
-
 }
 void bottomBoundary(Node* root) {
    if(root==NULL) return;
@@ -63,14 +62,12 @@ void bottomBoundary(Node* root) {
    bottomBoundary(root->left);
    bottomBoundary(root->right);
 }
-
 void rightBoundary(Node* root) {
    if(root==NULL) return;
    if(root->left==NULL && root->right==NULL) return;
    rightBoundary(root->right);
    if(root->right==NULL) rightBoundary(root->left);
    cout<<root->val<<" ";
-
 }
 int main() {
     int arr[]={1,2,3,4,5,INT_MIN,6,INT_MIN,9,INT_MIN,INT_MIN,7,INT_MIN,INT_MIN,INT_MIN,8};

@@ -34,7 +34,7 @@ int main() {
      honda.tyreSize = 10;
      honda.engSize = 400;
       cout<<honda.tyreSize<<endl;
-    //  honda.companyName = "Honda";
-    // honda.showCompany();
+     honda.companyName = "Honda";
+    honda.showCompany();
 
 }

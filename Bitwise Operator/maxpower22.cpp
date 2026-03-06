@@ -2,7 +2,6 @@
 using namespace std;
 
 int main() {
-  
    int n=23;
    int m=n;
     n=n|(n>>1);
@@ -11,6 +10,5 @@ int main() {
     n=n|(n>>8);
 
    int  y=m^n;
-    cout<<y;
-
+   cout<<y;
 }
